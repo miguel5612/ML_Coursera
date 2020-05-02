@@ -20,12 +20,18 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
-
-
-
-
-
-
+%disp('entra a funcion')
+for i=1:size(X, 1)
+    mindiff = inf;
+    for k = 1:K
+      diff = X(i, :)'-centroids(k, :)';
+      d = sqrt(diff'*diff); % At*A = (a*a + b*b)
+      if (d < mindiff)
+        idx(i) = k; %Save index
+        mindiff = d; %New min was found
+      end
+    endfor
+endfor
 
 % =============================================================
 

@@ -26,15 +26,19 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
-
-
-
-
+for ex = 1:size(idx)
+      %disp('*******CALCULOS*********');
+      centroidId = idx(ex);
+      %disp('actual')
+      %centroids(centroidId, :);
+      %disp('sumo')
+      %X(ex, :);
+      %disp('total');
+      countCentroidIdOnExamples = size(find(idx == centroidId))(1);
+      centroids(centroidId, :) += X(ex, :)*(1/countCentroidIdOnExamples);
+endfor
 
 % =============================================================
-
 
 end
 
